@@ -10,7 +10,7 @@ FYCU (pronounced FEYE-COO) is a complete rewrite of the original [Fish You Shoul
 - Configuration
 - Contributing
 
-# noted
+# Noted
 
 The plugin is in very active development and is considered in an alpha state, so
 there will be bugs! You have been warned
@@ -53,12 +53,15 @@ You don't need to do anything extra! Once the plugin's installed, `fycu` will
 let you know if you wrote a command that has an existing alias or abbreviation.
 Also, with the way fish shell aliases function, `fycu` cannot tell a local from
 a global alias/abbreviation.
+
 (PICTURE HERE)
 
 `fycu` can detect git aliases
+
 (PICTURE HERE)
 
 and abbreviations!
+
 (PICTURE HERE)
 
 # Configuration
@@ -73,14 +76,39 @@ by setting teh value of `FYCU_MESSAGE_POSITION`.
 set --global FYCU_MESSAGE_POSITION "after"
 ```
 
+## Enable Experimental Abbreviation Support
+
+Since there are still pressing bugs in the abbreviation detection, I've left the
+mode disabled with `FYCU_ENABLE_ABBR` set to `false`. If you wish to try it out,
+then simply set it to `true`
+
 ## Disable Hints for Specific Aliases/Abbreviations
 
-You can tell `fycu` to permanently ignore certain aliases/abbreviations by
-including them in the `FYCU_IGNORED_ALIASES`
+You can tell `fycu` to permanently ignore certain aliases/abbreviations with a
+couple of different options:
+
+You can set `FYCU_IGNORED_ALIASES` for standard aliases
 
 ```
-set -g FYCU_IGNORED_ALIASES "ls,fd"
+set --global FYCU_IGNORED_ALIASES "ls,fd"
 ```
+
+set `FYCU_IGNORED_GIT_ALIASES` for git aliases
+
+```
+set --global FYCU_IGNORED_GIT_ALIASES "reword,rewrite"
+```
+
+and `FYCU_IGNORED_GIT_ALIASES` for abbreviations.
+
+```
+set --global FYCU_IGNORED_ABBRS "jd,n"
+```
+
+These variables are verified using `__fycu_init_variables`, which is ran during
+plugin startup. This function can also be manually executed by calling it again
+in the session. If the variables are formatted correctly, then there will be no
+errors logged in the terminal.
 
 ## Hardcore Mode
 

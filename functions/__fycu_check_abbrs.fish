@@ -1,8 +1,15 @@
 function __fycu_check_abbrs --on-event fish_preexec
+    # If the user DOES NOT to try the abbreviation check, then end the program,
+    # otherwise continue
+    test "$FYCU_ENABLE_ABBR" != true; and return
+
     # Skip sudo commands
     string match --quiet -- "sudo *" "$argv"; and return
     # Start off being false, will be used to indicate if we found a match
     set --local found false
+    # Convert the ignored aliases list into a regex compatible set of
+    # strings
+    set --local ignore_regex (string replace --all ',' '|' $FYCU_IGNORED_ABBRS)
 
     # Grab every abbreviation
     abbr | sort | while read entry
@@ -19,10 +26,14 @@ function __fycu_check_abbrs --on-event fish_preexec
         # Grab the abbr's name and save it
         set --local key "$tokens[1]"
 
+        # CLEAN_UP: May not be actually needed, causes MORE regex errors
         # Escape any special characters in the abbr name
-        set --local escaped_key (string escape --style=regex -- "$key")
+        # set --local escaped_key (string escape --style=regex -- "$key")
 
         #TODO: Add ability to specify ignored abbreviations
+        # If the alias is in the list of ignored abbrs, then skip and
+        # move onto the next abbr
+        string match --quiet --regex -- "^($ignore_regex)\$" "$key"; and continue
 
         # Remove the quotes around the abbr's value via regex
         # Escapes any special characters in the abbr value

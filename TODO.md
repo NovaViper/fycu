@@ -1,10 +1,8 @@
 # Things to work on
 
 - ## Iron out buggy
-- Partial matching keeps happening with the string match regexes
-- ## Setup Abbreviation support
-  Partially implemented but still very buggy. Fish keeps partial matching strings
-  even though I don't want it to do so.. figuring that part out.
+- Currently, fish can't detect an Abbreviations expanded occurred; need to retool
+  the abbrev function, so it's turned off for now with `FYCU_ENABLE_ABBR`
 - ## Setup custom messages
   Allow users to setup custom reminder messages
 - ## Hardcore move
