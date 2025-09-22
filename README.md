@@ -5,10 +5,10 @@ FYCU (pronounced FEYE-COO) is a complete rewrite of the original [Fish You Shoul
 
 # Table of Contents
 
-- Installation
-- Usage
-- Configuration
-- Contributing
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Configuration](#Configuration)
+- [Contributing](#Contributing)
 
 # Noted
 
@@ -70,7 +70,7 @@ and abbreviations!
 
 By default, `fycu` will display its reminder messages _before_ a command has
 executed. However, you can change it to display _after_ a command has executed
-by setting teh value of `FYCU_MESSAGE_POSITION`.
+by setting the value of `FYCU_MESSAGE_POSITION`.
 
 ```
 set --global FYCU_MESSAGE_POSITION "after"
