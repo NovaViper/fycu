@@ -3,6 +3,12 @@ function __fycu_check_abbrs --on-event fish_preexec
     # otherwise continue
     test "$FYCU_ENABLE_ABBR" != true; and return
 
+    # Exit when the abbreviation has been used (from our new abbr bind functions)
+    if test "$__fycu_abbr_used" = 1
+        set --global __fycu_abbr_used 0
+        return
+    end
+
     # Skip sudo commands
     string match --quiet -- "sudo *" "$argv"; and return
     # Start off being false, will be used to indicate if we found a match

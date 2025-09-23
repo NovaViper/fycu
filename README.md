@@ -9,6 +9,7 @@ FYCU (pronounced FEYE-COO) is a complete rewrite of the original [Fish You Shoul
 - [Usage](#Usage)
 - [Configuration](#Configuration)
 - [Contributing](#Contributing)
+- [Credits](#Credits)
 
 # Noted
 
@@ -123,3 +124,13 @@ This is my very first fish plugin so there are bound to be bugs so feel free to
 [open an issue](https://github.com/NovaViper/fycu/issues/new) or [open a pull
 request](https://github.com/NovaViper/fycu/compare)! I also have a
 [TODO](TODO.md) list for upcoming features I plan to add.
+
+# Credits
+
+The plugin's development wouldn't have been possible without Llakala's help!
+Additionally:
+
+- Rewritten from [Fish You Should Use plugin](https://github.com/paysonwallach/fish-you-should-use), which is a port of [zsh-you-should-use](https://github.com/MichaelAquilina/zsh-you-should-use)
+- Abbreviation detection from
+  [fish-abbreviation-tips](https://github.com/gazorby/fish-abbreviation-tips)
+  and behavior inspiration from [zsh-abbr](https://zsh-abbr.olets.dev/)
