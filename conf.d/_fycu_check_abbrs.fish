@@ -1,4 +1,4 @@
-function __fycu_check_abbrs --on-event fish_preexec
+function _fycu_check_abbrs --on-event fish_preexec
     # If the user DOES NOT to try the abbreviation check, then end the program,
     # otherwise continue
     test "$FYCU_ENABLE_ABBR" != true; and return
@@ -55,12 +55,12 @@ function __fycu_check_abbrs --on-event fish_preexec
         # Check if the abbr's value appears as a standalone command (it's in the
         # beginning of the command the user is trying to run)
         if string match --quiet --regex -- "^$escaped_value\$" "$argv"
-            __fycu_message abbr "$cursor_value" "$key"
+            _fycu_message abbr "$cursor_value" "$key"
             set found true
         end
     end
 
     "$found"
     #TODO: Need to work on hardcore mode, though it may not happen
-    # "$found"; and __fycu_check_hardcore
+    # "$found"; and _fycu_check_hardcore
 end

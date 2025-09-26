@@ -1,4 +1,4 @@
-function __fycu_abbr_bind_space
+function _fycu_abbr_bind_space
     # Perform the space expansion
     commandline -i " "
     # If we HAVEN'T ran an expansion, now we do so, same like before

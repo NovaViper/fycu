@@ -1,5 +1,5 @@
 # TODO Needs more testing
-function __fycu_check_git_aliases --on-event fish_preexec
+function _fycu_check_git_aliases --on-event fish_preexec
     # Skip sudo commands
     string match --quiet -- "sudo *" "$argv"; and return
 
@@ -34,7 +34,7 @@ function __fycu_check_git_aliases --on-event fish_preexec
             # Check if the alias' value appears as a standalone command (it's in the
             # beginning in the command the user is trying to run)
             if string match --quiet --regex -- "^git $escaped_value\$" "$argv"
-                __fycu_message "git alias" "$value" "git $key"
+                _fycu_message "git alias" "$value" "git $key"
                 set found true
             end
 
@@ -42,6 +42,6 @@ function __fycu_check_git_aliases --on-event fish_preexec
 
         "$found"
         #TODO: Need to work on hardcore mode, though it may not happen
-        # "$found"; and __fycu_check_hardcore
+        # "$found"; and _fycu_check_hardcore
     end
 end

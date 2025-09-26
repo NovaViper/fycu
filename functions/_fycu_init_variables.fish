@@ -1,4 +1,4 @@
-function __fycu_init_variables
+function _fycu_init_variables
     # Add in the variables we want to check for the proper "text1,text2" format
     set --local var_list FYCU_IGNORED_ALIASES FYCU_IGNORED_GIT_ALAISES FYCU_IGNORED_ABBRS
 

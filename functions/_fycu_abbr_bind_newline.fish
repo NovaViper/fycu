@@ -1,4 +1,4 @@
-function __fycu_abbr_bind_newline
+function _fycu_abbr_bind_newline
     # If we HAVEN'T ran one yet, now's the time we do so
     if test $__fycu_abbr_used != 1
         # If the command actually matches, then we shall expand it (let the

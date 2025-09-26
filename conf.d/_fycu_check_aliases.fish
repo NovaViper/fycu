@@ -1,4 +1,4 @@
-function __fycu_check_aliases --on-event fish_preexec
+function _fycu_check_aliases --on-event fish_preexec
     # Skip sudo commands
     string match --quiet -- "sudo *" "$argv"; and return
     # Start off being false, will be used to indicate if we found a match
@@ -39,12 +39,12 @@ function __fycu_check_aliases --on-event fish_preexec
         # Check if the alias' value appears as a standalone command (it's in the
         # beginning in the command the user is trying to run)
         if string match --quiet --regex -- "^$escaped_value\$" "$argv"
-            __fycu_message alias "$value" "$key"
+            _fycu_message alias "$value" "$key"
             set found true
         end
     end
 
     "$found"
     #TODO: Need to work on hardcore mode, though it may not happen
-    # "$found"; and __fycu_check_hardcore
+    # "$found"; and _fycu_check_hardcore
 end
