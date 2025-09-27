@@ -31,18 +31,17 @@ NixOS Module
 
 [Home-Manager module](https://nix-community.github.io/home-manager)
 
-```
+```Nix
 home-manager.users.USER = {
     programs.fish.plugins = {
         {
-        name = "fycu";
-        src = pkgs.fetchFromGithub {
-            owner = "NovaViper";
-            repo = "fycu";
-            rev = "OBTAIN FROM GITHUB";
-            sha256 = "OBTAIN WITH nix-prefetch-url
-            https://github.com/NovaViper/fycu";
-        };
+            name = "fycu";
+            src = pkgs.fetchFromGithub {
+                owner = "NovaViper";
+                repo = "fycu";
+                rev = "OBTAIN FROM GITHUB";
+                sha256 = "OBTAIN WITH `nix-prefetch-url https://github.com/NovaViper/fycu`";
+            };
         }
     };
 };
@@ -106,7 +105,7 @@ and `FYCU_IGNORED_GIT_ALIASES` for abbreviations.
 set --global FYCU_IGNORED_ABBRS "jd,n"
 ```
 
-These variables are verified using `__fycu_init_variables`, which is ran during
+These variables are verified using `_fycu_init_variables`, which is ran during
 plugin startup. This function can also be manually executed by calling it again
 in the session. If the variables are formatted correctly, then there will be no
 errors logged in the terminal.
