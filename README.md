@@ -27,23 +27,24 @@ fisher install NovaViper/fycu
 [NixOS](https://nixos.org)
 
 NixOS Module
+
 (TBA)
 
 [Home-Manager module](https://nix-community.github.io/home-manager)
 
 ```Nix
 home-manager.users.USER = {
-    programs.fish.plugins = {
+    programs.fish.plugins = [
         {
             name = "fycu";
-            src = pkgs.fetchFromGithub {
+            src = pkgs.fetchFromGitHub {
                 owner = "NovaViper";
                 repo = "fycu";
                 rev = "OBTAIN FROM GITHUB";
-                sha256 = "OBTAIN WITH `nix-prefetch-url https://github.com/NovaViper/fycu`";
+                hash = "OBTAIN WITH `nix-prefetch-url https://github.com/NovaViper/fycu`";
             };
         }
-    };
+    ];
 };
 ```
 
