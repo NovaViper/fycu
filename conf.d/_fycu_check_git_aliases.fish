@@ -8,6 +8,8 @@ function _fycu_check_git_aliases --on-event fish_preexec
         # Start off being false, will be used to indicate if we found a match
         set --local found false
 
+        # Verify the ignored git aliases variable
+        _fycu_verify_ignored FYCU_IGNORED_GIT_ALIASES
         # Convert the ignored aliases list into a regex compatible set of
         # strings
         set --local ignore_regex (string replace --all ',' '|' $FYCU_IGNORED_GIT_ALIASES)

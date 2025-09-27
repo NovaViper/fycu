@@ -105,10 +105,7 @@ and `FYCU_IGNORED_GIT_ALIASES` for abbreviations.
 set --global FYCU_IGNORED_ABBRS "jd,n"
 ```
 
-These variables are verified using `_fycu_init_variables`, which is ran during
-plugin startup. This function can also be manually executed by calling it again
-in the session. If the variables are formatted correctly, then there will be no
-errors logged in the terminal.
+These variables are verified while using the plugin (when the respective check function). The `_fycu_verify_ignored FYCU_IGNORED_*` function can also be manually executed by calling it again and giving it the name of the ignore type in the session. If the variables are formatted correctly, then there will be no errors logged in the terminal.
 
 ## Hardcore Mode
 

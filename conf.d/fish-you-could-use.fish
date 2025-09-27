@@ -14,11 +14,8 @@ set --global FYCU_ENABLE_ABBR false
 functions -q \
     _fycu_abbr_bind_space \
     _fycu_abbr_bind_newline \
-    _omp_enter_key_handler_fycu
-
-function fycu_init_variables -d "Make _fycu_init_variables available and loaded for execution"
-    _fycu_init_variables
-end
+    _omp_enter_key_handler_fycu \
+    _fycu_verify_ignored
 
 # Setup custom bindings needed to track abbr expansions
 function _fycu_keybindings --on-variable fish_key_bindings
@@ -36,6 +33,3 @@ function _fycu_keybindings --on-variable fish_key_bindings
         end
     end
 end
-
-# Verify filter variables
-fycu_init_variables
