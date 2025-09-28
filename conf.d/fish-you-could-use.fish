@@ -18,16 +18,26 @@ functions -q \
     _fycu_verify_ignored
 
 # Setup custom bindings needed to track abbr expansions
-for mode in default insert
-    bind -M $mode space _fycu_abbr_bind_space
-    bind -M $mode shift-enter _fycu_abbr_bind_newline
-
-    # If oh-my-posh is installed then add custom overlay that appends the
-    # fycu logic and then calls the original oh-my-posh function, otherwise,
-    # just add fycu function
-    if bind enter --user 2>/dev/null | string match -qe _omp_enter_key_handler
-        bind -M $mode enter _omp_enter_key_handler_fycu
-    else
+function _fycu_keybindings -d "Load default keybindings for FYCU"
+    for mode in default insert
+        bind -M $mode space _fycu_abbr_bind_space
+        bind -M $mode shift-enter _fycu_abbr_bind_newline
         bind -M $mode enter _fycu_abbr_bind_newline
     end
 end
+
+function _fycu_keybindings_omp -d "Load oh-my-posh compatiable enter key binding" --on-event fish_prompt
+    # If oh-my-posh is installed then add custom overlay that appends the
+    # fycu logic and then calls the original oh-my-posh function
+    for mode in default insert
+        if bind enter --user 2>/dev/null | string match -qe _omp_enter_key_handler
+            bind -M $mode enter _omp_enter_key_handler_fycu
+        end
+    end
+
+    # Delete the function after it's ran as it's no longer needed afterward
+    functions --erase _fycu_keybindings_omp
+end
+
+# Run the default keybindings
+_fycu_keybindings
