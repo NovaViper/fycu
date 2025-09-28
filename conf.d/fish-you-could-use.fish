@@ -10,15 +10,8 @@ set --global FYCU_MESSAGE_POSITION before
 # Turned off by default due to bugs with detection
 set --global FYCU_ENABLE_ABBR false
 
-# Lock in event handlers for keybinds and initialization
-functions -q \
-    _fycu_abbr_bind_space \
-    _fycu_abbr_bind_newline \
-    _omp_enter_key_handler_fycu \
-    _fycu_verify_ignored
-
 # Setup custom bindings needed to track abbr expansions
-function _fycu_keybindings --on-variable fish_key_bindings
+function _fycu_keybindings
     for mode in default insert
         bind -M $mode space _fycu_abbr_bind_space
         bind -M $mode shift-enter _fycu_abbr_bind_newline
@@ -33,3 +26,11 @@ function _fycu_keybindings --on-variable fish_key_bindings
         end
     end
 end
+
+# Lock in event handlers for keybinds and initialization
+functions -q \
+    _fycu_abbr_bind_space \
+    _fycu_abbr_bind_newline \
+    _omp_enter_key_handler_fycu \
+    _fycu_verify_ignored \
+    _fycu_keybindings
