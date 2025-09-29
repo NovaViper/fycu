@@ -1,5 +1,7 @@
 # _FYCU - Fish You Could Use_
 
+![intro img](img/intro-demo.png)
+
 A fish plugin that reminds you to use your aliases and abbreviations!
 FYCU (pronounced FEYE-COO) is a complete rewrite of the original [Fish You Should Use plugin](https://github.com/paysonwallach/fish-you-should-use) with bug fixes and new features.
 
@@ -55,15 +57,15 @@ let you know if you wrote a command that has an existing alias or abbreviation.
 Also, with the way fish shell aliases function, `fycu` cannot tell a local from
 a global alias/abbreviation.
 
-(PICTURE HERE)
+![fycu demo](img/fycu-demo.gif)
 
 `fycu` can detect git aliases
 
-(PICTURE HERE)
+![git alias demo](img/git-alias-demo.gif)
 
 and abbreviations!
 
-(PICTURE HERE)
+![abbr demo](img/abbr-demo.gif)
 
 # Configuration
 
