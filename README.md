@@ -1,3 +1,5 @@
+# MOVED TO CODEBERG: https://codeberg.org/NovaViper/fycu
+
 # _FYCU - Fish You Could Use_
 
 ![intro img](img/intro-demo.png)
